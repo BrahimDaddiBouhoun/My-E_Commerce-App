@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ecommerce</string>
+    <string name="join_now">Join Now</string>
+    <string name="button">Button</string>
+    <string name="already_have_an_account_log_in">Already have an account log in</string>
+    <string name="join">JOIN</string>
+    <string name="logo">logo</string>
+</resources>
