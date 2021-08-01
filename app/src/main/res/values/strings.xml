@@ -5,4 +5,13 @@
     <string name="already_have_an_account_log_in">Already have an account log in</string>
     <string name="join">JOIN</string>
     <string name="logo">logo</string>
+    <string name="enter_your_phone_number">enter your phone number</string>
+    <string name="enter_your_password">enter your password</string>
+    <string name="enter_your_name">enter your name</string>
+    <string name="create_account">Create Account</string>
+    <string name="log_in">Log In</string>
+    <string name="i_am_not_admin">I am not Admin</string>
+    <string name="forget_my_password">Forget my password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="i_am_admin">I am Admin</string>
 </resources>

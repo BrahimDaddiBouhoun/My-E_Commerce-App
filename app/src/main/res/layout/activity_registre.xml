@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="100dp"
-    tools:context=".LoginActivity">
+    tools:context=".RegistreActivity">
 
     <ImageView
         android:id="@+id/iv_login_logo"
@@ -14,11 +14,11 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/app_logo" />
+        app:srcCompat="@drawable/app_logo"
+        android:contentDescription="@string/logo" />
 
     <EditText
-        android:id="@+id/ed_register_phone"
+        android:id="@+id/ed_register_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_login_logo"
@@ -29,12 +29,31 @@
         android:background="@color/gray"
         android:ems="10"
         android:gravity="center_horizontal"
+        android:hint="@string/enter_your_name"
+        android:hintTextColor="#616161"
+        android:inputType="text"
+        android:padding="15dp"
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/ed_register_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ed_register_user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/gray"
+        android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="@string/enter_your_phone_number"
         android:hintTextColor="#616161"
-        android:importantForAutofill="no"
         android:inputType="phone"
         android:padding="15dp"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/ed_register_password"
@@ -50,77 +69,27 @@
         android:gravity="center_horizontal"
         android:hint="@string/enter_your_password"
         android:hintTextColor="#616161"
-        android:importantForAutofill="no"
         android:inputType="textPassword"
         android:padding="15dp"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ed_register_password"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:minHeight="48dp"
-        android:text="@string/remember_me" />
-
-    <TextView
-        android:id="@+id/tv_forget_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ed_register_password"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minHeight="48dp"
-        android:text="@string/forget_my_password" />
 
     <Button
         android:id="@+id/btn_create_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/checkBox"
+        android:layout_below="@id/ed_register_password"
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="false"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:clickable="true"
-        android:text="@string/log_in"
+        android:text="@string/create_account"
         app:backgroundTint="#dfe3ee"
         app:cornerRadius="20dp"
         android:focusable="true" />
-
-    <TextView
-        android:id="@+id/tv_not_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_create_account"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:text="@string/i_am_not_admin"
-        android:visibility="invisible"
-        android:focusable="true" />
-
-    <TextView
-        android:id="@+id/tv_iam_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btn_create_account"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minHeight="48dp"
-        android:scrollHorizontally="false"
-        android:text="@string/i_am_admin"
-        android:verticalScrollbarPosition="right" />
 
 
 </RelativeLayout>
