@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         JoinNowButton = findViewById(R.id.btn_join) ;
-        LoginButton = findViewById(R.id.btn_create_account) ;
+        LoginButton = findViewById(R.id.btn_login) ;
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
