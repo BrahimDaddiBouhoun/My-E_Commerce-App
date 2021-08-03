@@ -101,9 +101,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:clickable="true"
+        android:focusable="true"
         android:text="@string/i_am_not_admin"
-        android:visibility="invisible"
-        android:focusable="true" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tv_iam_admin"
