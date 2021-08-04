@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce">
         <activity
+            android:name=".AdminCategoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".AdminActivity"
             android:exported="true" />
         <activity
