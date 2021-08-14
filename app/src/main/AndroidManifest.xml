@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce">
         <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.Ecommerce.NoActionBar" />
+        <activity
             android:name=".AdminAddNewProductActivity"
             android:exported="true" />
         <activity
@@ -19,9 +24,6 @@
             android:exported="true" />
         <activity
             android:name=".AdminActivity"
-            android:exported="true" />
-        <activity
-            android:name=".HomeActivity"
             android:exported="true" />
         <activity android:name=".RegistreActivity" />
         <activity android:name=".MainActivity">
