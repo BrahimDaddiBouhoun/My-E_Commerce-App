@@ -9,16 +9,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommerce.Models.Users;
+import com.example.ecommerce.prevalent.prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog LoadingBar;
     private String ParentDbName = "users";
     private TextView IamAdmin,IamNotAdmin;
+    private CheckBox checkBoxRememberMe ;
 
 
 
@@ -40,6 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         Login = findViewById(R.id.btn_login);
         IamAdmin = findViewById(R.id.tv_iam_admin);
         IamNotAdmin = findViewById(R.id.tv_not_admin);
+
+        checkBoxRememberMe = findViewById(R.id.checkBox);
+        Paper.init(this);
 
         LoadingBar = new ProgressDialog(LoginActivity.this);
 
@@ -100,6 +108,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void AllowAccesToAccount(String phone, String password) {
+
+        if (checkBoxRememberMe.isChecked())
+        {
+            Paper.book().write(prevalent.UserPhoneKey, phone);
+            Paper.book().write(prevalent.UserPasswordKey, password);
+        }
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();

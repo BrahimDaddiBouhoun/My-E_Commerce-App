@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/welcome"
     tools:context=".MainActivity">
 
     <ImageView
@@ -16,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
         android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/app_logo" />
+        app:srcCompat="@drawable/applogo" />
 
     <Button
         android:id="@+id/btn_login"
@@ -26,7 +27,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/buttons"
         android:clickable="true"
         android:focusable="true"
