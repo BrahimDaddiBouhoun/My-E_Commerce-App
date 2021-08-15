@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 LoginUser();
             }
         });
@@ -135,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                                    Toast.makeText(LoginActivity.this, "Logged successfully", Toast.LENGTH_SHORT).show();
                                    LoadingBar.dismiss();
                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                   prevalent.CurrentOnlineUser = usersData;
                                    startActivity(intent);
                                }
                                else if (ParentDbName == "Admins")
