@@ -27,7 +27,7 @@
         android:hint="product name..."
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         />
 
     <EditText
@@ -41,7 +41,7 @@
         android:hint="product description..."
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         />
 
     <EditText
@@ -55,7 +55,7 @@
         android:hint="product price..."
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         />
 
     <Button

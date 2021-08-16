@@ -7,15 +7,19 @@
     android:background="@drawable/register"
     tools:context=".RegistreActivity">
 
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_centerVertical="true">
     <ImageView
         android:id="@+id/iv_login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
-        app:srcCompat="@drawable/applogo"
-        android:contentDescription="@string/logo" />
+        android:contentDescription="@string/logo"
+        app:srcCompat="@drawable/applogo" />
 
     <EditText
         android:id="@+id/ed_register_user_name"
@@ -24,12 +28,14 @@
         android:layout_below="@id/iv_login_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/enter_your_name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:inputType="text"
         android:padding="15dp"
         tools:ignore="TextContrastCheck" />
@@ -43,10 +49,12 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/enter_your_phone_number"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:importantForAutofill="no"
         android:inputType="phone"
         android:padding="15dp"
@@ -61,10 +69,12 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
-        android:background="@drawable/inout_design"
+        android:background="@drawable/input_design"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/enter_your_password"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:padding="15dp"
@@ -76,8 +86,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ed_login_password"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentBottom="false"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
@@ -87,6 +95,7 @@
         android:text="@string/create_account"
         app:backgroundTint="#dfe3ee"
         app:cornerRadius="20dp" />
+   </RelativeLayout>
 
 
 </RelativeLayout>

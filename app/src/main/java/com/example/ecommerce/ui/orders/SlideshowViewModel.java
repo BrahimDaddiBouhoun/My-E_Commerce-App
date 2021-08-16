@@ -1,16 +1,16 @@
-package com.example.ecommerce.ui.gallery;
+package com.example.ecommerce.ui.orders;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class SlideshowViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public SlideshowViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is cart fragment");
+        mText.setValue("This is orders fragment");
     }
 
     public LiveData<String> getText() {

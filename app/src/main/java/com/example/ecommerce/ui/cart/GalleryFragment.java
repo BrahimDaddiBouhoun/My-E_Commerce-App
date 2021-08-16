@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.gallery;
+package com.example.ecommerce.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
