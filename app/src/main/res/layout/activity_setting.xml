@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingFragment">
+    tools:context=".SettingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_setting"
@@ -35,13 +35,12 @@
                     android:id="@+id/btn_update_setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
                     android:text="Update"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginRight="10dp"
-                    android:layout_alignParentEnd="true"
-                    />
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -57,18 +56,18 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
         />
+
     <TextView
         android:id="@+id/btn_profile_image_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_profile_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
         android:text="Change profile picture"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/setting_profile_image"
-        android:layout_marginTop="4dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/setting_phone_number"
@@ -110,6 +109,5 @@
         android:hint="Address"
         android:minHeight="48dp"
         android:padding="10dp" />
-
 
 </RelativeLayout>

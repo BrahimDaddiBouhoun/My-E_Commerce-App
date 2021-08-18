@@ -22,6 +22,13 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_home"
         app:menu="@menu/activity_main_drawer">
+
+        <TextView
+            android:id="@+id/setting"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Setting"
+            />
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"

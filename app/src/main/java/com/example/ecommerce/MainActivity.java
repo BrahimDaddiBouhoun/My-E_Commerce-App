@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Logged successfully", Toast.LENGTH_SHORT).show();
                                 LoadingBar.dismiss();
                                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                                prevalent.CurrentOnlineUser = usersData;
                                 startActivity(intent);
 
                         }

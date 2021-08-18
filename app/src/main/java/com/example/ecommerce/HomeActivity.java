@@ -3,6 +3,7 @@ package com.example.ecommerce;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
@@ -41,6 +42,8 @@ public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
     private Button Logout;
 
+    private TextView setting ;
+
     private DatabaseReference ProductsRef;
 
     private RecyclerView recyclerView;
@@ -56,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Logout = findViewById(R.id.btn_logout);
+        
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -71,6 +75,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
         setSupportActionBar(binding.appBarHome.toolbar);
@@ -92,14 +98,26 @@ public class HomeActivity extends AppCompatActivity {
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
         userNameTextView.setText(prevalent.CurrentOnlineUser.getName());
+        Picasso.get().load(prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_cart, R.id.nav_orders, R.id.nav_categories, R.id.nav_setting)
+                R.id.nav_home, R.id.nav_cart, R.id.nav_orders, R.id.nav_categories)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        MenuItem settingItem = navigationView.getMenu().findItem(R.id.nav_setting);
+        settingItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(HomeActivity.this,SettingActivity.class));
+                finish();
+
+                return true;
+            }
+        });
     }
 
 

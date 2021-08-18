@@ -28,8 +28,8 @@
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.example.ecommerce.ui.setting.SettingFragment"
+        android:name="com.example.ecommerce.SettingActivity"
         android:label="Setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/activity_setting" />
 
 </navigation>
