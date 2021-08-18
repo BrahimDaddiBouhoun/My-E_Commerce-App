@@ -139,6 +139,16 @@ public class HomeActivity extends AppCompatActivity {
                 holder.txtProductDescription.setText(model.getDescription());
                 holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
                 Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                     Intent intent = new Intent(HomeActivity.this, ProductsDetailsActivity.class);
+                     intent.putExtra("pid",model.getPid());
+                     startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
