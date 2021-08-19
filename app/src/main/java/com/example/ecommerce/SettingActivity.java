@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ecommerce.prevalent.prevalent;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -128,7 +128,7 @@ public class SettingActivity extends AppCompatActivity {
             HashMap<String, Object> userMap = new HashMap<>();
             userMap.put("address", addressEditText.getText().toString());
             userMap.put("phoneOrder", userPhoneEditText.getText().toString());
-            ref.child(prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
+            ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
 
             startActivity(new Intent(SettingActivity.this, MainActivity.class));
             Toast.makeText(SettingActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
@@ -140,7 +140,7 @@ public class SettingActivity extends AppCompatActivity {
             userMap.put("name", fullNameEditText.getText().toString());
             userMap.put("address", addressEditText.getText().toString());
             userMap.put("phoneOrder", userPhoneEditText.getText().toString());
-            ref.child(prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
+            ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
 
             startActivity(new Intent(SettingActivity.this, HomeActivity.class));
             Toast.makeText(SettingActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
@@ -177,7 +177,7 @@ public class SettingActivity extends AppCompatActivity {
 
         if (imageUri != null) {
             final StorageReference fileRef = storageProfilePictureRef
-                    .child(prevalent.CurrentOnlineUser.getPhone() + ".jpg");
+                    .child(Prevalent.CurrentOnlineUser.getPhone() + ".jpg");
 
             uploadTask = fileRef.putFile(imageUri);
 
@@ -205,7 +205,7 @@ public class SettingActivity extends AppCompatActivity {
                                 userMap.put("address", addressEditText.getText().toString());
                                 userMap.put("phoneOrder", userPhoneEditText.getText().toString());
                                 userMap.put("image", myUri);
-                                ref.child(prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
+                                ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
 
                                 progressDialog.dismiss();
 
@@ -227,7 +227,7 @@ public class SettingActivity extends AppCompatActivity {
 
     private void userInfoDisplay(CircleImageView profileImageView, EditText fullNameEditText, EditText userPhoneEditText, EditText addressEditText)
     {
-        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("users").child(prevalent.CurrentOnlineUser.getPhone());
+        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("users").child(Prevalent.CurrentOnlineUser.getPhone());
 
         UserRef.addValueEventListener(new ValueEventListener() {
             @Override

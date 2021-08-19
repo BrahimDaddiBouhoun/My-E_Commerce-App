@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ecommerce.Models.Users;
-import com.example.ecommerce.prevalent.prevalent;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        String UserPhoneKey = Paper.book().read(prevalent.UserPhoneKey);
-        String UserPasswordKey = Paper.book().read(prevalent.UserPasswordKey);
+        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 
         if(UserPhoneKey != "" && UserPasswordKey!= "")
         {
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Logged successfully", Toast.LENGTH_SHORT).show();
                                 LoadingBar.dismiss();
                                 Intent intent = new Intent(MainActivity.this,HomeActivity.class);
-                                prevalent.CurrentOnlineUser = usersData;
+                                Prevalent.CurrentOnlineUser = usersData;
                                 startActivity(intent);
 
                         }

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommerce.Models.Users;
-import com.example.ecommerce.prevalent.prevalent;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -112,8 +112,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if (checkBoxRememberMe.isChecked())
         {
-            Paper.book().write(prevalent.UserPhoneKey, phone);
-            Paper.book().write(prevalent.UserPasswordKey, password);
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
         }
 
         final DatabaseReference RootRef;
@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                                    Toast.makeText(LoginActivity.this, "Logged successfully", Toast.LENGTH_SHORT).show();
                                    LoadingBar.dismiss();
                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                                   prevalent.CurrentOnlineUser = usersData;
+                                   Prevalent.CurrentOnlineUser = usersData;
                                    startActivity(intent);
                                }
                                else if (ParentDbName == "Admins")

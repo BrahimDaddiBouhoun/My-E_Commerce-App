@@ -13,10 +13,9 @@ import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.ecommerce.Models.Products;
-import com.example.ecommerce.prevalent.prevalent;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,7 +83,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         cartMap.put("quantity",numberButton.getNumber());
         cartMap.put("discount","");
 
-        cartListRef.child("User View").child(prevalent.CurrentOnlineUser.getPhone())
+        cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
                 .child("Products").child(productID)
                 .updateChildren(cartMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -93,7 +92,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
                     {
                      if (task.isSuccessful())
                      {
-                         cartListRef.child("Admin View").child(prevalent.CurrentOnlineUser.getPhone())
+                         cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
                                  .child("Products").child(productID)
                                  .updateChildren(cartMap)
                                  .addOnCompleteListener(new OnCompleteListener<Void>() {

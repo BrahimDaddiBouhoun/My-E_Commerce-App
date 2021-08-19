@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
-import com.example.ecommerce.prevalent.prevalent;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.snackbar.Snackbar;
@@ -82,9 +82,10 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarHome.toolbar);
         binding.appBarHome.fabCart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -97,11 +98,11 @@ public class HomeActivity extends AppCompatActivity {
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(prevalent.CurrentOnlineUser.getName());
-        Picasso.get().load(prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        userNameTextView.setText(Prevalent.CurrentOnlineUser.getName());
+        Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_cart, R.id.nav_orders, R.id.nav_categories)
+                R.id.nav_home, R.id.nav_orders, R.id.nav_categories)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
@@ -113,6 +114,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 startActivity(new Intent(HomeActivity.this,SettingActivity.class));
+                finish();
+
+                return true;
+            }
+        });
+
+        MenuItem cartItem = navigationView.getMenu().findItem(R.id.nav_cart);
+        cartItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(HomeActivity.this,CartActivity.class));
                 finish();
 
                 return true;
