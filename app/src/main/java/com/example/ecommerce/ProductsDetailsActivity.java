@@ -126,7 +126,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
                     Products products = snapshot.getValue(Products.class);
 
                     productName.setText(products.getPname());
-                    productPrice.setText(products.getPrice() + " $");
+                    productPrice.setText(products.getPrice());
                     productDescription.setText(products.getDescription());
                     Picasso.get().load(products.getImage()).into(productImage);
                 }

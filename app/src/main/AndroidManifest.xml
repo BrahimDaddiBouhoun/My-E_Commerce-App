@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Ecommerce"
         tools:replace="android:theme">
         <activity
+            android:name=".ConfirmFinalOrderActivity"
+            android:exported="true" />
+        <activity
             android:name=".CartActivity"
             android:exported="true" />
         <activity
