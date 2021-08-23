@@ -26,7 +26,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private EditText nameEditText, phoneEditText, addressEditText,cityEditText;
     private Button confirmOrderButton;
 
-    private String totalAmount;
+    private int totalAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.shipment_phone_number);
         addressEditText = findViewById(R.id.shipment_address);
         cityEditText = findViewById(R.id.shipment_city);
+
+        totalAmount = getIntent().getIntExtra("totalAmount",0);
 
 
         confirmOrderButton.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +83,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
         HashMap<String,Object> ordersMap = new HashMap<>();
 
-        ordersMap.put("totalAmount",totalAmount);
+        ordersMap.put("totalAmount",String.valueOf(totalAmount));
         ordersMap.put("name",nameEditText.getText().toString());
         ordersMap.put("phone",phoneEditText.getText().toString());
         ordersMap.put("address",addressEditText.getText().toString());

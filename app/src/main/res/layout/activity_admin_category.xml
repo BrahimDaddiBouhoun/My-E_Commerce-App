@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_add_new_activity"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -66,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear1_category_layout"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -109,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linear2_category_layout"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -146,5 +146,35 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_check_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Check New Orders"
+        android:layout_above="@+id/btn_admin_logout"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        />
+
+    <Button
+        android:id="@+id/btn_admin_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
 
 </RelativeLayout>

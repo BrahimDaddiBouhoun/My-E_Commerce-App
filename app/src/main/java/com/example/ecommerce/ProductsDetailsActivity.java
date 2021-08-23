@@ -58,7 +58,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
 
                 if(state.equals("Order Placed") || state.equals("Order Shipped"))
                 {
-                    Toast.makeText(ProductsDetailsActivity.this, "you can add products once your's are shipped", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductsDetailsActivity.this, "you can add products once yours are shipped", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -92,7 +92,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
         final HashMap<String,Object> cartMap = new HashMap<>();
         cartMap.put("pid",productID);
         cartMap.put("pname",productName.getText().toString());
-        cartMap.put("price",productPrice.getText().toString());
+        cartMap.put("price",productPrice.getText().toString().replace(" $",""));
         cartMap.put("date",saveCurrentDate);
         cartMap.put("time",saveCurrentTime);
         cartMap.put("quantity",numberButton.getNumber());

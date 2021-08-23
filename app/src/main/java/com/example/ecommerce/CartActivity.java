@@ -64,8 +64,8 @@ public class CartActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
+                intent.putExtra("totalAmount",totalPrice);
                 startActivity(intent);
-                finish();
             }
         });
     }
@@ -74,7 +74,6 @@ public class CartActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        CheckOrdersState();
 
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
@@ -161,12 +160,15 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+
+        CheckOrdersState();
     }
 
     private void CheckOrdersState()
     {
         DatabaseReference ordersRef;
         ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.CurrentOnlineUser.getPhone());
+
 
         ordersRef.addValueEventListener(new ValueEventListener() {
             @Override
