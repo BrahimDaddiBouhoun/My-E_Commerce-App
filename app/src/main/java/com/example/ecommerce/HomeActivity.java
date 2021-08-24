@@ -42,8 +42,6 @@ public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
     private Button Logout;
 
-    private TextView setting ;
-
     private DatabaseReference ProductsRef;
 
     private RecyclerView recyclerView;
@@ -102,7 +100,7 @@ public class HomeActivity extends AppCompatActivity {
         Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_orders, R.id.nav_categories)
+                R.id.nav_home, R.id.nav_categories)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
@@ -125,6 +123,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 startActivity(new Intent(HomeActivity.this,CartActivity.class));
+                finish();
+
+                return true;
+            }
+        });
+
+        MenuItem searchItem = navigationView.getMenu().findItem(R.id.nav_search);
+        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(HomeActivity.this,SearchProductActivity.class));
                 finish();
 
                 return true;

@@ -7,9 +7,16 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_new_orders.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_user_product.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_cart.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_home.xml" value="0.1787037037037037" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_products_details.xml" value="0.18425925925925926" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_search_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/app_bar_home.xml" value="0.1787037037037037" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/cart_items_layout.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/content_home.xml" value="0.1787037037037037" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_home.xml" value="0.1787037037037037" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/orders_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/home.xml" value="0.1787037037037037" />
       </map>
     </option>
   </component>
