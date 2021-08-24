@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Ecommerce"
         tools:replace="android:theme">
         <activity
+            android:name=".AdminMaintainProductsActivity"
+            android:exported="true" />
+        <activity
             android:name=".SearchProductActivity"
             android:exported="true" />
         <activity

@@ -34,6 +34,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
 
         Button logout = findViewById(R.id.btn_admin_logout);
         Button checkOrders = findViewById(R.id.btn_check_orders);
+        Button maintainProductBtn = findViewById(R.id.btn_maintain);
 
         tShirts.setOnClickListener(v -> {
             Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class );
@@ -121,6 +122,15 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this,AdminNewOrdersActivity.class );
+                startActivity(intent);
+            }
+        });
+
+        maintainProductBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this,HomeActivity.class );
+                intent.putExtra("Admin","Admin");
                 startActivity(intent);
             }
         });

@@ -47,9 +47,19 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    private String type = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null)
+        {
+            type = getIntent().getExtras().get("Admin").toString();
+
+        }
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -67,10 +77,13 @@ public class HomeActivity extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (!type.equals("Admin")) {
                 Paper.book().destroy();
 
                 Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
                 startActivity(intent);
+                }
             }
         });
 
@@ -82,8 +95,10 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
-                startActivity(intent);
+                if (!type.equals("Admin")) {
+                    Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -96,8 +111,10 @@ public class HomeActivity extends AppCompatActivity {
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.CurrentOnlineUser.getName());
-        Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        if (!type.equals("Admin")) {
+            userNameTextView.setText(Prevalent.CurrentOnlineUser.getName());
+            Picasso.get().load(Prevalent.CurrentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        }
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_categories)
@@ -111,8 +128,10 @@ public class HomeActivity extends AppCompatActivity {
         settingItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(HomeActivity.this,SettingActivity.class));
-                finish();
+                if (!type.equals("Admin")) {
+                    startActivity(new Intent(HomeActivity.this, SettingActivity.class));
+                    finish();
+                }
 
                 return true;
             }
@@ -122,8 +141,10 @@ public class HomeActivity extends AppCompatActivity {
         cartItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(HomeActivity.this,CartActivity.class));
-                finish();
+                if (!type.equals("Admin")) {
+                    startActivity(new Intent(HomeActivity.this, CartActivity.class));
+                    finish();
+                }
 
                 return true;
             }
@@ -133,8 +154,10 @@ public class HomeActivity extends AppCompatActivity {
         searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(HomeActivity.this,SearchProductActivity.class));
-                finish();
+                if (!type.equals("Admin")) {
+                    startActivity(new Intent(HomeActivity.this, SearchProductActivity.class));
+                    finish();
+                }
 
                 return true;
             }
@@ -165,9 +188,18 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
-                     Intent intent = new Intent(HomeActivity.this, ProductsDetailsActivity.class);
-                     intent.putExtra("pid",model.getPid());
-                     startActivity(intent);
+                        if (type.equals("Admin"))
+                        {
+                            Intent intent = new Intent(HomeActivity.this,AdminMaintainProductsActivity.class);
+                            intent.putExtra("pid",model.getPid());
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(HomeActivity.this, ProductsDetailsActivity.class);
+                            intent.putExtra("pid",model.getPid());
+                            startActivity(intent);
+                        }
                     }
                 });
             }

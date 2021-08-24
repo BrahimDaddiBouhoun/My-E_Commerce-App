@@ -150,10 +150,11 @@
     <Button
         android:id="@+id/btn_check_orders"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="15dp"
         android:text="Check New Orders"
         android:layout_above="@+id/btn_admin_logout"
         android:textColor="@android:color/white"
@@ -164,10 +165,10 @@
     <Button
         android:id="@+id/btn_admin_logout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@color/colorPrimaryDark"
@@ -175,6 +176,20 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_maintain"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Maintain Products"
+        android:layout_above="@+id/btn_check_orders"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        />
 
 
 </RelativeLayout>
