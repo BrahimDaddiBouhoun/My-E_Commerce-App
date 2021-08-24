@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_category.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_new_orders.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_user_product.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_cart.xml" value="0.16574074074074074" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_products_details.xml" value="0.18425925925925926" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/cart_items_layout.xml" value="0.16574074074074074" />
@@ -12,5 +13,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK" />
 </project>
