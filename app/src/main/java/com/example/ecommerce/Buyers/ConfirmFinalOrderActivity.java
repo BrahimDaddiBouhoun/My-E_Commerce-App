@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -109,7 +110,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(ConfirmFinalOrderActivity.this, "your final order been placed successfully", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this,HomeActivity.class);
+                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this, HomeActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         finish();

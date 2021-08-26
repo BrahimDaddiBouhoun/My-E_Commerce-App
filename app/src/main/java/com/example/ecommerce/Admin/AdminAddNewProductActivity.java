@@ -1,11 +1,9 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Admin;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -19,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.ecommerce.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -210,7 +209,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                             LoadingBar.dismiss();
                             Toast.makeText(AdminAddNewProductActivity.this, "Product id=s added successfully", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(AdminAddNewProductActivity.this,AdminCategoryActivity.class);
+                            Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
                             startActivity(intent);
                         }
                         else

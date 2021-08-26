@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ecommerce.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -101,7 +102,7 @@ public class RegistreActivity extends AppCompatActivity {
                                      Toast.makeText(RegistreActivity.this, "Congratulations, your account has been created. ", Toast.LENGTH_SHORT).show();
                                      LoadingBar.dismiss();
 
-                                     Intent intent = new Intent(RegistreActivity.this,LoginActivity.class);
+                                     Intent intent = new Intent(RegistreActivity.this, LoginActivity.class);
                                      startActivity(intent);
 
                                  }
@@ -120,7 +121,7 @@ public class RegistreActivity extends AppCompatActivity {
                     LoadingBar.dismiss();
                     Toast.makeText(RegistreActivity.this, "you can try to login ", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(RegistreActivity.this,MainActivity.class);
+                    Intent intent = new Intent(RegistreActivity.this, MainActivity.class);
                     startActivity(intent);
 
                 }

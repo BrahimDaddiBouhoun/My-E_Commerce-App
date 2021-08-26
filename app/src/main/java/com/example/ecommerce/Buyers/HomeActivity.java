@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ecommerce.Admin.AdminMaintainProductsActivity;
 import com.example.ecommerce.Models.Products;
+import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -81,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (!type.equals("Admin")) {
                 Paper.book().destroy();
 
-                Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 }
             }
@@ -190,7 +191,7 @@ public class HomeActivity extends AppCompatActivity {
                     {
                         if (type.equals("Admin"))
                         {
-                            Intent intent = new Intent(HomeActivity.this,AdminMaintainProductsActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
                             intent.putExtra("pid",model.getPid());
                             startActivity(intent);
                         }

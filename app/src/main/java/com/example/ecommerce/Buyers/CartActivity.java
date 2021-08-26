@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommerce.Models.Cart;
+import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.CartViewHolder;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -63,7 +63,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
+                Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
                 intent.putExtra("totalAmount",totalPrice);
                 startActivity(intent);
             }
@@ -113,7 +113,7 @@ public class CartActivity extends AppCompatActivity {
                             {
                                 if (i == 0)
                                 {
-                                    Intent intent = new Intent(CartActivity.this,ProductsDetailsActivity.class);
+                                    Intent intent = new Intent(CartActivity.this, ProductsDetailsActivity.class);
                                     intent.putExtra("pid",model.getPid());
                                     startActivity(intent);
                                 }
@@ -136,7 +136,7 @@ public class CartActivity extends AppCompatActivity {
                                                     if (task.isSuccessful())
                                                     {
                                                         Toast.makeText(CartActivity.this, "Items removed successfully", Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(CartActivity.this,HomeActivity.class);
+                                                        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
                                                         startActivity(intent);
                                                     }
                                                 }

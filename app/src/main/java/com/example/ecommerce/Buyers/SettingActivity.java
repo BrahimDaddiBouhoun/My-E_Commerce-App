@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,6 +47,8 @@ public class SettingActivity extends AppCompatActivity {
     private StorageReference storageProfilePictureRef;
     private String checker = "" ;
 
+    private Button securityQuestionBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,8 @@ public class SettingActivity extends AppCompatActivity {
         profileChangeTextBtn = findViewById(R.id.btn_profile_image_change);
         closeTextBtn = findViewById(R.id.btn_close_setting);
         saveTextButton = findViewById(R.id.btn_update_setting);
+
+        securityQuestionBtn = findViewById(R.id.btn_security_question);
 
         userInfoDisplay(profileImageView,fullNameEditText, userPhoneEditText,addressEditText);
 
@@ -95,6 +101,15 @@ public class SettingActivity extends AppCompatActivity {
                 CropImage.activity(imageUri)
                         .setAspectRatio(1,1)
                         .start(SettingActivity.this) ;
+            }
+        });
+
+        securityQuestionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check","setting");
+                startActivity(intent);
             }
         });
     }

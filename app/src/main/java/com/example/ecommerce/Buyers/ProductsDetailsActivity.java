@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.ecommerce.Models.Products;
+import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -118,7 +119,7 @@ public class ProductsDetailsActivity extends AppCompatActivity {
                                          {
                                              Toast.makeText(ProductsDetailsActivity.this, "Added to Cart List", Toast.LENGTH_SHORT).show();
 
-                                             Intent intent = new Intent(ProductsDetailsActivity.this,HomeActivity.class);
+                                             Intent intent = new Intent(ProductsDetailsActivity.this, HomeActivity.class);
                                              startActivity(intent);
                                          }
                                      }

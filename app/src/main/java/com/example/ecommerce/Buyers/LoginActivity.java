@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Buyers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ecommerce.Admin.AdminCategoryActivity;
 import com.example.ecommerce.Models.Users;
+import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button Login;
     private ProgressDialog LoadingBar;
     private String ParentDbName = "users";
-    private TextView IamAdmin,IamNotAdmin;
+    private TextView IamAdmin,IamNotAdmin, forgetPassword;
     private CheckBox checkBoxRememberMe ;
 
 
@@ -45,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         Login = findViewById(R.id.btn_login);
         IamAdmin = findViewById(R.id.tv_iam_admin);
         IamNotAdmin = findViewById(R.id.tv_not_admin);
+        forgetPassword = findViewById(R.id.tv_forget_password);
 
         checkBoxRememberMe = findViewById(R.id.checkBox);
         Paper.init(this);
@@ -76,6 +79,15 @@ public class LoginActivity extends AppCompatActivity {
                 IamAdmin.setVisibility(View.VISIBLE);
                 IamNotAdmin.setVisibility(View.INVISIBLE);
                 ParentDbName = "users";
+            }
+        });
+
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
+                intent.putExtra("check","login");
+                startActivity(intent);
             }
         });
 
@@ -135,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                                {
                                    Toast.makeText(LoginActivity.this, "Logged successfully", Toast.LENGTH_SHORT).show();
                                    LoadingBar.dismiss();
-                                   Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                   Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                    Prevalent.CurrentOnlineUser = usersData;
                                    startActivity(intent);
                                }
@@ -143,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
                                {
                                    Toast.makeText(LoginActivity.this, "Logged in successfully as an Admin", Toast.LENGTH_SHORT).show();
                                    LoadingBar.dismiss();
-                                   Intent intent = new Intent(LoginActivity.this,AdminCategoryActivity.class);
+                                   Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                    startActivity(intent);
                                }
 

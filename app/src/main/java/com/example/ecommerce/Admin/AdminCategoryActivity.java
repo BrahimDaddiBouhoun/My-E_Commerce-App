@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.ecommerce.Buyers.HomeActivity;
+import com.example.ecommerce.Buyers.MainActivity;
+import com.example.ecommerce.R;
 
 public class AdminCategoryActivity extends AppCompatActivity {
 
@@ -111,7 +115,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this,MainActivity.class );
+                Intent intent = new Intent(AdminCategoryActivity.this, MainActivity.class );
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
@@ -121,7 +125,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         checkOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this,AdminNewOrdersActivity.class );
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminNewOrdersActivity.class );
                 startActivity(intent);
             }
         });
@@ -129,7 +133,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         maintainProductBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this,HomeActivity.class );
+                Intent intent = new Intent(AdminCategoryActivity.this, HomeActivity.class );
                 intent.putExtra("Admin","Admin");
                 startActivity(intent);
             }

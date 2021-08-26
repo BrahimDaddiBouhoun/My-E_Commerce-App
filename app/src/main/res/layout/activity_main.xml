@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/welcome"
-    tools:context=".MainActivity">
+    tools:context=".Buyers.MainActivity">
 
     <ImageView
         android:id="@+id/iv_login_logo"
@@ -23,13 +23,12 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/buttons"
         android:clickable="true"
+        android:layout_above="@+id/seller_begin"
         android:focusable="true"
         android:text="@string/already_have_an_account_log_in"
         app:backgroundTint="#dfe3ee"
@@ -48,5 +47,19 @@
         android:focusable="true"
         android:text="@string/join"
         app:backgroundTint="#dfe3ee" />
+
+    <TextView
+        android:id="@+id/seller_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Want to become a seller"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/holo_green_light"
+        android:textStyle="bold"
+        />
+
 
 </RelativeLayout>
