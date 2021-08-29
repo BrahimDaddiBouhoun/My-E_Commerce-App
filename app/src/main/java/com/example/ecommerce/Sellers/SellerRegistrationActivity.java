@@ -11,10 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ecommerce.Buyers.LoginActivity;
-import com.example.ecommerce.Buyers.MainActivity;
 import com.example.ecommerce.R;
-import com.example.ecommerce.Sellers.ui.notifications.NotificationsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -72,11 +69,11 @@ public class SellerRegistrationActivity extends AppCompatActivity {
 
     private void registerSeller()
     {
-        String name = nameInput.getText().toString();
-        String phone = phoneInput.getText().toString();
-        String email = emailInput.getText().toString();
-        String password = passwordInput.getText().toString();
-        String address = addressInput.getText().toString();
+        String name = nameInput.getText().toString().trim();
+        String phone = phoneInput.getText().toString().trim();
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+        String address = addressInput.getText().toString().trim();
 
         if (!name.equals("") && !email.equals("") && !phone.equals("") && !password.equals("") && !address.equals(""))
         {

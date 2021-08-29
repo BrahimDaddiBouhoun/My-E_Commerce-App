@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Ecommerce"
         tools:replace="android:theme">
         <activity
+            android:name=".Admin.AdminApproveProductActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Admin.AdminHomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".Sellers.SellerHomeActivity"
             android:exported="true"
             android:label="@string/title_activity_seller_home" />
@@ -59,10 +65,10 @@
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Ecommerce.NoActionBar" />
         <activity
-            android:name=".Admin.AdminAddNewProductActivity"
+            android:name=".Sellers.SellerAddNewProductActivity"
             android:exported="true" />
         <activity
-            android:name=".Admin.AdminCategoryActivity"
+            android:name=".Sellers.SellerProductCategoryActivity"
             android:exported="true" />
         <activity android:name=".Buyers.RegistreActivity" />
         <activity android:name=".Buyers.MainActivity">

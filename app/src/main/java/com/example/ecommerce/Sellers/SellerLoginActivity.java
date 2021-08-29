@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ecommerce.Buyers.LoginActivity;
 import com.example.ecommerce.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,8 +38,7 @@ public class SellerLoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        LoadingBar = new ProgressDialog(this);
-
+        LoadingBar = new ProgressDialog(SellerLoginActivity.this);
 
         loginSellerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,8 +49,8 @@ public class SellerLoginActivity extends AppCompatActivity {
     }
 
     private void loginSeller() {
-        String email = emailInput.getText().toString();
-        String password = passwordInput.getText().toString();
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
         if (!email.equals("") && !password.equals("")) {
             LoadingBar.setTitle("Seller Account Login");

@@ -1,4 +1,4 @@
-package com.example.ecommerce.Admin;
+package com.example.ecommerce.Sellers;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -23,8 +23,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -33,7 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class AdminAddNewProductActivity extends AppCompatActivity {
+public class SellerAddNewProductActivity extends AppCompatActivity {
 
     private String CategoryName,Description,Price,Pname, SaveCurrentDate,SaveCurrentTime ;
     private EditText InputProductName, InputProductDescription,InputProductPrice;
@@ -42,25 +46,28 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private Uri ImageUri;
     private String ProductRandomKey,DownloadImageUrl;
     private StorageReference ProductImagesRef;
-    private DatabaseReference ProductRef;
+    private DatabaseReference ProductRef,sellersRef;
     private ProgressDialog LoadingBar;
+
+    private String sName, sAddress,sPhone,sEmail,sID;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_new_product);
+        setContentView(R.layout.activity_seller_add_new_product);
 
         CategoryName = getIntent().getExtras().get("category").toString();
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         ProductRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        sellersRef = FirebaseDatabase.getInstance().getReference().child("Sellers");
 
 
         Button addNewProduct = findViewById(R.id.btn_add_new_product);
         InputProductName = findViewById(R.id.ed_product_name);
         InputProductDescription = findViewById(R.id.ed_product_description);
         InputProductPrice = findViewById(R.id.ed_product_price);
-        LoadingBar = new ProgressDialog(AdminAddNewProductActivity.this);
+        LoadingBar = new ProgressDialog(SellerAddNewProductActivity.this);
 
         InputProductImage= findViewById(R.id.iv_select_product_image);
 
@@ -74,6 +81,26 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
 
         addNewProduct.setOnClickListener(v -> ValidateProductData());
+
+        sellersRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists())
+                        {
+                            sName = snapshot.child("name").getValue().toString();
+                            sAddress = snapshot.child("address").getValue().toString();
+                            sPhone = snapshot.child("phone").getValue().toString();
+                            sEmail = snapshot.child("email").getValue().toString();
+                            sID = snapshot.child("sid").getValue().toString();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
     }
 
@@ -125,7 +152,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private void StoreProductInformation()
     {
         LoadingBar.setTitle("Adding New Product");
-        LoadingBar.setMessage("Dear Admin Please wait, while we are adding the new product...");
+        LoadingBar.setMessage("Dear Seller Please wait, while we are adding the new product...");
         LoadingBar.setCanceledOnTouchOutside(false);
         LoadingBar.show();
 
@@ -149,14 +176,14 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e)
             {
                 String messege = e.toString();
-                Toast.makeText(AdminAddNewProductActivity.this, "Error: " + messege, Toast.LENGTH_SHORT).show();
+                Toast.makeText(SellerAddNewProductActivity.this, "Error: " + messege, Toast.LENGTH_SHORT).show();
                 LoadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
             {
-                Toast.makeText(AdminAddNewProductActivity.this, "Image uploaded successfuly", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SellerAddNewProductActivity.this, "Image uploaded successfuly", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -176,7 +203,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             DownloadImageUrl= task.getResult().toString();
-                            Toast.makeText(AdminAddNewProductActivity.this, "Got the Product image Url successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SellerAddNewProductActivity.this, "Got the Product image Url successfully", Toast.LENGTH_SHORT).show();
 
                             SaveProductImageToDatabase();
                         }
@@ -199,6 +226,16 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("price", Price);
         productMap.put("pname", Pname);
 
+        productMap.put("productState", "not approved");
+
+        productMap.put("sellerName",sName );
+        productMap.put("sellerAddress", sAddress);
+        productMap.put("sellerPhone", sPhone);
+        productMap.put("sellerEmail", sEmail);
+        productMap.put("sID", sID);
+
+
+
         ProductRef.child(ProductRandomKey).updateChildren(productMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -207,20 +244,25 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                         if (task.isSuccessful())
                         {
                             LoadingBar.dismiss();
-                            Toast.makeText(AdminAddNewProductActivity.this, "Product id=s added successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SellerAddNewProductActivity.this, "Product id=s added successfully", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                            Intent intent = new Intent(SellerAddNewProductActivity.this, SellerHomeActivity.class);
                             startActivity(intent);
                         }
                         else
                         {
                             LoadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(AdminAddNewProductActivity.this, "Error :" + message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SellerAddNewProductActivity.this, "Error :" + message, Toast.LENGTH_SHORT).show();
                         }
 
                     }
                 });
+    }
+
+    private void sellerInformation()
+    {
+
     }
 
 

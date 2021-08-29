@@ -1,4 +1,4 @@
-package com.example.ecommerce.Sellers.ui.notifications;
+package com.example.ecommerce.Sellers.ui.logout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,25 +14,24 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ecommerce.Buyers.MainActivity;
-import com.example.ecommerce.R;
-import com.example.ecommerce.databinding.FragmentNotificationsBinding;
+import com.example.ecommerce.databinding.FragmentLogoutBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class NotificationsFragment extends Fragment {
+public class LogoutFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private LogoutViewModel logoutViewModel;
+    private FragmentLogoutBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        logoutViewModel =
+                new ViewModelProvider(this).get(LogoutViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentLogoutBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        logoutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

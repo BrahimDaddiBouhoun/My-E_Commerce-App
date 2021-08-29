@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ecommerce.Admin.AdminCategoryActivity;
+import com.example.ecommerce.Admin.AdminHomeActivity;
+import com.example.ecommerce.Sellers.SellerProductCategoryActivity;
 import com.example.ecommerce.Models.Users;
 import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
@@ -155,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                                {
                                    Toast.makeText(LoginActivity.this, "Logged in successfully as an Admin", Toast.LENGTH_SHORT).show();
                                    LoadingBar.dismiss();
-                                   Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                                   Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
                                    startActivity(intent);
                                }
 
