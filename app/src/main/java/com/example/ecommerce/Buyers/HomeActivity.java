@@ -82,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (!type.equals("Admin")) {
                 Paper.book().destroy();
 
-                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 }
             }
@@ -223,7 +223,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.buyer_home, menu);
         return true;
     }
 

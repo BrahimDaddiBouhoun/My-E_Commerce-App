@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.home;
+package com.example.ecommerce.Buyers.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.ecommerce.databinding.FragmentHome1Binding;
+import com.example.ecommerce.databinding.FragmentBuyerHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHome1Binding binding;
+    private FragmentBuyerHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHome1Binding.inflate(inflater, container, false);
+        binding = FragmentBuyerHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 

@@ -14,18 +14,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ecommerce.Sellers.SellerAddNewProductActivity;
-import com.example.ecommerce.Sellers.SellerProductCategoryActivity;
-import com.example.ecommerce.databinding.FragmentAddBinding;
+import com.example.ecommerce.databinding.FragmentSellerAddBinding;
 
 public class AddFragment extends Fragment {
 
     private AddViewModel addViewModel;
-    private FragmentAddBinding binding;
+    private FragmentSellerAddBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentAddBinding.inflate(inflater, container, false);
+        binding = FragmentSellerAddBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         binding.ivTshirts.setOnClickListener(v -> {

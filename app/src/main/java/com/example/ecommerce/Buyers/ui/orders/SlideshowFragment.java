@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.categories;
+package com.example.ecommerce.Buyers.ui.orders;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ecommerce.databinding.FragmentCategoriesBinding;
+import com.example.ecommerce.databinding.FragmentBuyerSlideshowBinding;
 
-public class CategoriesFragment extends Fragment {
+public class SlideshowFragment extends Fragment {
 
-    private CategoriesViewModel categoriesViewModel;
-    private FragmentCategoriesBinding binding;
+    private SlideshowViewModel slideshowViewModel;
+    private FragmentBuyerSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        categoriesViewModel =
-                new ViewModelProvider(this).get(CategoriesViewModel.class);
+        slideshowViewModel =
+                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
-        binding = FragmentCategoriesBinding.inflate(inflater, container, false);
+        binding = FragmentBuyerSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCategories;
-        categoriesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textSlideshow;
+        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -42,5 +42,4 @@ public class CategoriesFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

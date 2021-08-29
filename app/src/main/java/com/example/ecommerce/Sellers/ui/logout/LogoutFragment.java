@@ -14,20 +14,20 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ecommerce.Buyers.MainActivity;
-import com.example.ecommerce.databinding.FragmentLogoutBinding;
+import com.example.ecommerce.databinding.FragmentSellerLogoutBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LogoutFragment extends Fragment {
 
     private LogoutViewModel logoutViewModel;
-    private FragmentLogoutBinding binding;
+    private FragmentSellerLogoutBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         logoutViewModel =
                 new ViewModelProvider(this).get(LogoutViewModel.class);
 
-        binding = FragmentLogoutBinding.inflate(inflater, container, false);
+        binding = FragmentSellerLogoutBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;

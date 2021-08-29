@@ -78,7 +78,7 @@ public class AdminApproveProductActivity extends AppCompatActivity {
                                                 "No"
                                         };
                                 AlertDialog.Builder builder = new AlertDialog.Builder(AdminApproveProductActivity.this);
-                                builder.setTitle("Do you want to approve this Product. Are you sure?");
+                                builder.setTitle("Do you want to delete this Product. Are you sure?");
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {
@@ -117,7 +117,7 @@ public class AdminApproveProductActivity extends AppCompatActivity {
         .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(AdminApproveProductActivity.this, "That item has been approved, and it is avaimible for sel ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminApproveProductActivity.this, "That item has been approved, and it is available for sel ", Toast.LENGTH_SHORT).show();
             }
         });
     }
