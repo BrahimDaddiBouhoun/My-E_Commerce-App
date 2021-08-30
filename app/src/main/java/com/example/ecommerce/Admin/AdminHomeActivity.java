@@ -21,7 +21,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         Button logout = findViewById(R.id.btn_admin_logout);
         Button checkOrders = findViewById(R.id.btn_check_orders);
-        Button maintainProductBtn = findViewById(R.id.btn_maintain);
+        Button disapproveProductBtn = findViewById(R.id.btn_disapprove);
         Button approveProductBtn = findViewById(R.id.btn_approve_products);
 
                 logout.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +42,10 @@ public class AdminHomeActivity extends AppCompatActivity {
             }
         });
 
-        maintainProductBtn.setOnClickListener(new View.OnClickListener() {
+        disapproveProductBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHomeActivity.this, HomeActivity.class );
+                Intent intent = new Intent(AdminHomeActivity.this, AdminDisapproveProductsActivity.class );
                 intent.putExtra("Admin","Admin");
                 startActivity(intent);
             }

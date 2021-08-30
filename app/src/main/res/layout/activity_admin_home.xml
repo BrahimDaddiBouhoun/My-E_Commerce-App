@@ -19,15 +19,15 @@
         />
 
     <Button
-        android:id="@+id/btn_maintain"
+        android:id="@+id/btn_disapprove"
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:layout_below="@+id/admin_welcome"
+        android:layout_below="@id/btn_approve_products"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Maintain Products"
+        android:text="Disapprove Products"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
@@ -41,7 +41,7 @@
             android:background="@color/colorPrimaryDark"
             android:layout_marginTop="15dp"
             android:text="Check New Orders"
-            android:layout_below="@+id/btn_maintain"
+            android:layout_below="@+id/admin_welcome"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textAllCaps="false"

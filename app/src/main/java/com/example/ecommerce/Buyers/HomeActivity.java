@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.ecommerce.Admin.AdminMaintainProductsActivity;
+import com.example.ecommerce.Admin.AdminDisapproveProductsActivity;
 import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
@@ -191,7 +191,7 @@ public class HomeActivity extends AppCompatActivity {
                     {
                         if (type.equals("Admin"))
                         {
-                            Intent intent = new Intent(HomeActivity.this, AdminMaintainProductsActivity.class);
+                            Intent intent = new Intent(HomeActivity.this, AdminDisapproveProductsActivity.class);
                             intent.putExtra("pid",model.getPid());
                             startActivity(intent);
                         }

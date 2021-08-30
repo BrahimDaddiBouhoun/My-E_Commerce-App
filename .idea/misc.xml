@@ -6,6 +6,7 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/buttons.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_approve_product.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_category.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_disapprove_products.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_maintain_products.xml" value="0.25" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_new_orders.xml" value="0.20416666666666666" />
@@ -20,6 +21,8 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_add_new_product.xml" value="0.2" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_home.xml" value="0.22" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_maintain_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_maintain_products.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_product_category.xml" value="0.2" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_registration.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_setting.xml" value="0.17222222222222222" />

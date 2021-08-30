@@ -7,43 +7,52 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.ecommerce.Interface.ItemClickListner;
 import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.R;
+import com.example.ecommerce.Sellers.SellerProductCategoryActivity;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class AdminApproveProductActivity extends AppCompatActivity {
+import java.util.HashMap;
+
+public class AdminDisapproveProductsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView ;
     RecyclerView.LayoutManager layoutManager;
 
-    private DatabaseReference unverifiedProductsRef;
+    private DatabaseReference verifiedProductsRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_approve_product);
+        setContentView(R.layout.activity_admin_disapprove_products);
 
-        unverifiedProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        verifiedProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
-        recyclerView =findViewById(R.id.admin_products_to_approve);
+        recyclerView =findViewById(R.id.admin_products_to_disapprove);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
 
     }
 
@@ -53,8 +62,8 @@ public class AdminApproveProductActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Products> options =
                 new FirebaseRecyclerOptions.Builder<Products>()
-                .setQuery(unverifiedProductsRef.orderByChild("productState").equalTo("not approved"),Products.class)
-                .build();
+                        .setQuery(verifiedProductsRef.orderByChild("productState").equalTo("approved"),Products.class)
+                        .build();
 
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
@@ -77,8 +86,8 @@ public class AdminApproveProductActivity extends AppCompatActivity {
                                                 "yes",
                                                 "No"
                                         };
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminApproveProductActivity.this);
-                                builder.setTitle("Do you want to approve this Product. Are you sure?");
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminDisapproveProductsActivity.this);
+                                builder.setTitle("Do you want to disapprove this Product. Are you sure?");
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {
@@ -88,7 +97,7 @@ public class AdminApproveProductActivity extends AppCompatActivity {
                                         }
                                         else
                                         {
-                                            Toast.makeText(AdminApproveProductActivity.this, "product has not been approved", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(AdminDisapproveProductsActivity.this, "product has not been disapproved", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -113,12 +122,13 @@ public class AdminApproveProductActivity extends AppCompatActivity {
 
     private void changeProductState(String productID)
     {
-        unverifiedProductsRef.child(productID).child("productState").setValue("approved")
-        .addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(AdminApproveProductActivity.this, "That item has been approved, and it is available for sel ", Toast.LENGTH_SHORT).show();
-            }
-        });
+        verifiedProductsRef.child(productID).child("productState").setValue("not approved")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(AdminDisapproveProductsActivity.this, "That item has been disapproved successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
+
