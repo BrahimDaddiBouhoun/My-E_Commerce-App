@@ -108,7 +108,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                     @NonNull
                     @Override
                     public AdminOrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orders_layout,parent,false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_orders,parent,false);
                         return new AdminOrdersViewHolder(view);
                     }
                 };

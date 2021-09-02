@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ecommerce.Models.Cart;
-import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -65,7 +64,7 @@ public class AdminUserProductActivity extends AppCompatActivity {
                     @NonNull
                     @Override
                     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_items_layout,parent,false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_cart_items,parent,false);
                         CartViewHolder holder = new CartViewHolder(view);
                         return holder;
                     }

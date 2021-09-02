@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.ecommerce.Interface.ItemClickListner;
 import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
@@ -102,7 +101,7 @@ public class AdminApproveProductActivity extends AppCompatActivity {
                     @NonNull
                     @Override
                     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_product_items, parent, false);
                         ProductViewHolder holder = new ProductViewHolder(view);
                         return holder;
                     }

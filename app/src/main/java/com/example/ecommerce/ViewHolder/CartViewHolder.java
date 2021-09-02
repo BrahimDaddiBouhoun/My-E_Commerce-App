@@ -1,6 +1,7 @@
 package com.example.ecommerce.ViewHolder;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,20 +12,29 @@ import com.example.ecommerce.R;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
-    public TextView txtProductName, txtProductPrice, txtProductQuantity;
-    private ItemClickListner itemClickListner;
+    public TextView txtProductName, txtProductPrice, txtProductQuantity,totalEachItem;
+    public ItemClickListner itemClickListner;
+    public ImageView imageView,plusTxt,minusTxt;
 
     public CartViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        txtProductName = itemView.findViewById(R.id.cart_product_name);
-        txtProductPrice = itemView.findViewById(R.id.cart_product_price);
-        txtProductQuantity = itemView.findViewById(R.id.cart_product_quantity);
+        txtProductName = itemView.findViewById(R.id.card_product_name);
+        txtProductPrice = itemView.findViewById(R.id.card_product_price);
+        txtProductQuantity = itemView.findViewById(R.id.card_product_quantity);
+        imageView = itemView.findViewById(R.id.image_card_item);
+        totalEachItem = itemView.findViewById(R.id.total_each_item);
+
+        plusTxt = itemView.findViewById(R.id.plusCardBtn);
+        minusTxt = itemView.findViewById(R.id.minusCardBtn);
+
+
     }
 
     @Override
     public void onClick(View view)
     {
+
         itemClickListner.onClick(view, getAdapterPosition(),false);
     }
 

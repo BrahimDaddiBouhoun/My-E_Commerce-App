@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Ecommerce"
         tools:replace="android:theme">
         <activity
+            android:name=".Buyers.HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".Sellers.SellerMaintainProductsActivity"
             android:exported="true" />
         <activity
@@ -36,13 +39,13 @@
             android:name=".Sellers.SellerRegistrationActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.ResetPasswordActivity"
+            android:name=".Buyers.BuyerResetPasswordActivity"
             android:exported="true" />
         <activity
             android:name=".Admin.AdminDisapproveProductsActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.SearchProductActivity"
+            android:name=".Buyers.BuyerSearchProductActivity"
             android:exported="true" />
         <activity
             android:name=".Admin.AdminUserProductActivity"
@@ -51,19 +54,19 @@
             android:name=".Admin.AdminNewOrdersActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.ConfirmFinalOrderActivity"
+            android:name=".Buyers.BuyerConfirmFinalOrderActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.CartActivity"
+            android:name=".Buyers.BuyerCartActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.ProductsDetailsActivity"
+            android:name=".Buyers.BuyerProductsDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.SettingActivity"
+            android:name=".Buyers.BuyerSettingActivity"
             android:exported="true" />
         <activity
-            android:name=".Buyers.HomeActivity"
+            android:name=".Buyers.BuyerHomeActivity"
             android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Ecommerce.NoActionBar" />
@@ -73,15 +76,15 @@
         <activity
             android:name=".Sellers.SellerProductCategoryActivity"
             android:exported="true" />
-        <activity android:name=".Buyers.RegistreActivity" />
-        <activity android:name=".Buyers.MainActivity">
+        <activity android:name=".Buyers.BuyerRegisterActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Buyers.LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
