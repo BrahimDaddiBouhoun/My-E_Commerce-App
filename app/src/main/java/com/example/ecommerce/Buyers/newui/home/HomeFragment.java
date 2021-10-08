@@ -2,31 +2,38 @@ package com.example.ecommerce.Buyers.newui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerce.Admin.AdminDisapproveProductsActivity;
-import com.example.ecommerce.Buyers.BuyerProductsDetailsActivity;
-import com.example.ecommerce.Buyers.HomeActivity;
 import com.example.ecommerce.Buyers.newui.productdetails.ProductDetailsFragment;
+import com.example.ecommerce.Buyers.newui.search.SearchFragment;
 import com.example.ecommerce.Models.Products;
 import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
-import com.example.ecommerce.databinding.HomeFragmentBinding;
+import com.example.ecommerce.databinding.BuyerHomeFragmentBinding;
+import com.example.ecommerce.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends Fragment {
@@ -34,28 +41,87 @@ public class HomeFragment extends Fragment {
     private DatabaseReference ProductsRef;
 
     private RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
+    GridLayoutManager gridLayoutManager;
 
     private String type = "";
+    private String searchInput;
     
-    private HomeFragmentBinding binding;
+    private BuyerHomeFragmentBinding binding;
+
+    private EditText search ;
+
+    private ImageView profileImage;
+
     
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = HomeFragmentBinding.inflate(inflater, container, false);
+        binding = BuyerHomeFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         recyclerView = binding.shopNowRv;
         recyclerView.setHasFixedSize(false);
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        gridLayoutManager = new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+        search = binding.search;
+        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    searchInput = search.getText().toString().trim();
+
+                    if (searchInput != null) {
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager()
+                                .beginTransaction();
+
+                        Bundle bundle = new Bundle();
+                        bundle.putString("search", searchInput);
+
+                        SearchFragment frag = new SearchFragment();
+                        frag.setArguments(bundle);
+
+                        fragmentTransaction.replace(R.id.buyer_fragment_host,frag).commit();
+                    }
+
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        profileImage = binding.homeProfileImage;
+        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(Prevalent.CurrentOnlineUser.getPhone());
+
+        UserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    if(snapshot.child("image").exists())
+                    {
+                        String image = snapshot.child("image").getValue().toString();
+
+                        Picasso.get().load(image).into(profileImage);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     
         return root;
     }
+
 
     @Override
     public void onStart() {
@@ -72,8 +138,8 @@ public class HomeFragment extends Fragment {
                     protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Products model) {
 
                         holder.txtProductName.setText(model.getPname());
-                        holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + " $");
+                        holder.txtProductDescription.setVisibility(View.GONE);
+                        holder.txtProductPrice.setText(model.getPrice() + " $");
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {

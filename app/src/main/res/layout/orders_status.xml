@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/os_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayouts5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayouts5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/os_user_name"
+        app:layout_constraintStart_toStartOf="@+id/os_user_name"
+        tools:layout_editor_absoluteY="110dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViews31"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/ic_pending"
+                tools:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViews31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Pending"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViews15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Orders"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViews84"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/ic_accepted"
+                tools:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViews108"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Accepted"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViews110"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Orders"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViews03"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/ic_shipped"
+                tools:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViews180"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Shipped"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViews91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Orders"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageViews"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/ic_complete"
+                tools:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViews10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Complete"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViews11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Orders"
+                android:textAlignment="center"
+                android:textColor="#323643"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.kofigyan.stateprogressbar.StateProgressBar
+        android:id="@+id/your_state_progress_bar_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView_os"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayouts5"
+        app:spb_animateToCurrentProgressState="true"
+        app:spb_checkStateCompleted="true"
+        app:spb_currentStateDescriptionColor="#009688"
+        app:spb_currentStateNumber="one"
+        app:spb_maxStateNumber="four"
+        app:spb_stateBackgroundColor="#BDBDBD"
+        app:spb_stateDescriptionColor="#808080"
+        app:spb_stateForegroundColor="@color/orange_ff3"
+        app:spb_stateNumberBackgroundColor="#808080"
+        app:spb_stateNumberForegroundColor="#eeeeee" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_os"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_state_progress_bar_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

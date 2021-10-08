@@ -6,8 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ecommerce.MainActivity;
 import com.example.ecommerce.R;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.android.gms.tasks.Continuation;
@@ -36,11 +35,12 @@ import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class BuyerSettingActivity extends AppCompatActivity {
+public class BuyerEditProfileActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
-    private TextView profileChangeTextBtn, closeTextBtn, saveTextButton;
+    private TextView profileChangeTextBtn, saveTextButton;
+    private ImageView goBack;
 
     private Uri imageUri;
     private String myUri = "" ;
@@ -48,12 +48,11 @@ public class BuyerSettingActivity extends AppCompatActivity {
     private StorageReference storageProfilePictureRef;
     private String checker = "" ;
 
-    private Button securityQuestionBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_setting);
+        setContentView(R.layout.activity_buyer_edit_profile);
 
         storageProfilePictureRef = FirebaseStorage.getInstance().getReference().child("profile picture");
 
@@ -62,21 +61,12 @@ public class BuyerSettingActivity extends AppCompatActivity {
         userPhoneEditText = findViewById(R.id.setting_phone_number);
         addressEditText = findViewById(R.id.setting_address);
         profileChangeTextBtn = findViewById(R.id.btn_profile_image_change);
-        closeTextBtn = findViewById(R.id.btn_close_setting);
-        saveTextButton = findViewById(R.id.btn_update_setting);
+        goBack = findViewById(R.id.back_setting);
+        saveTextButton = findViewById(R.id.update_profile);
 
-        securityQuestionBtn = findViewById(R.id.btn_security_question);
 
         userInfoDisplay(profileImageView,fullNameEditText, userPhoneEditText,addressEditText);
 
-        closeTextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(BuyerSettingActivity.this, BuyerHomeActivity.class));
-                finish();
-            }
-        });
 
         saveTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,19 +91,19 @@ public class BuyerSettingActivity extends AppCompatActivity {
 
                 CropImage.activity(imageUri)
                         .setAspectRatio(1,1)
-                        .start(BuyerSettingActivity.this) ;
+                        .start(BuyerEditProfileActivity.this) ;
             }
         });
 
-        securityQuestionBtn.setOnClickListener(new View.OnClickListener() {
+        goBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BuyerSettingActivity.this, BuyerResetPasswordActivity.class);
-                intent.putExtra("check","setting");
-                startActivity(intent);
+              finish();
             }
         });
+
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -130,7 +120,7 @@ public class BuyerSettingActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Error Try Again...", Toast.LENGTH_SHORT).show();
 
-            startActivity(new Intent(BuyerSettingActivity.this, BuyerSettingActivity.class));
+            startActivity(new Intent(BuyerEditProfileActivity.this, BuyerEditProfileActivity.class));
             finish();
         }
     }
@@ -139,29 +129,17 @@ public class BuyerSettingActivity extends AppCompatActivity {
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
 
-        if (TextUtils.isEmpty(fullNameEditText.getText().toString()))
-        {
+
             HashMap<String, Object> userMap = new HashMap<>();
-            userMap.put("address", addressEditText.getText().toString());
-            userMap.put("phoneOrder", userPhoneEditText.getText().toString());
+            userMap.put("name", fullNameEditText.getText().toString().trim());
+            userMap.put("address", addressEditText.getText().toString().trim());
+            userMap.put("phoneOrder", userPhoneEditText.getText().toString().trim());
             ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
 
-            startActivity(new Intent(BuyerSettingActivity.this, MainActivity.class));
-            Toast.makeText(BuyerSettingActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(BuyerEditProfileActivity.this, HomeActivity.class));
+            Toast.makeText(BuyerEditProfileActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
             finish();
-        }
 
-        else {
-            HashMap<String, Object> userMap = new HashMap<>();
-            userMap.put("name", fullNameEditText.getText().toString());
-            userMap.put("address", addressEditText.getText().toString());
-            userMap.put("phoneOrder", userPhoneEditText.getText().toString());
-            ref.child(Prevalent.CurrentOnlineUser.getPhone()).updateChildren(userMap);
-
-            startActivity(new Intent(BuyerSettingActivity.this, BuyerHomeActivity.class));
-            Toast.makeText(BuyerSettingActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
-            finish();
-             }
     }
 
     private void userInfoSaved()
@@ -225,25 +203,26 @@ public class BuyerSettingActivity extends AppCompatActivity {
 
                                 progressDialog.dismiss();
 
-                                startActivity(new Intent(BuyerSettingActivity.this, BuyerHomeActivity.class));
-                                Toast.makeText(BuyerSettingActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BuyerEditProfileActivity.this, "Profile Info updated successfully", Toast.LENGTH_SHORT).show();
                                 finish();
                             } else {
                                 progressDialog.dismiss();
-                                Toast.makeText(BuyerSettingActivity.this, "Error..", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BuyerEditProfileActivity.this, "Error..", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         }
         else
         {
-            Toast.makeText(BuyerSettingActivity.this, "Image is not selected.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BuyerEditProfileActivity.this, "Image is not selected.", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void userInfoDisplay(CircleImageView profileImageView, EditText fullNameEditText, EditText userPhoneEditText, EditText addressEditText)
     {
-        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("users").child(Prevalent.CurrentOnlineUser.getPhone());
+        DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(Prevalent.CurrentOnlineUser.getPhone());
 
         UserRef.addValueEventListener(new ValueEventListener() {
             @Override

@@ -6,29 +6,21 @@ import android.os.Bundle;
 
 import com.example.ecommerce.R;
 
-public class BuyerResetPasswordActivity extends AppCompatActivity {
-
-    private String check = "";
+public class BuyerOrderStateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_reset_password);
-
-        check = getIntent().getStringExtra("check");
+        setContentView(R.layout.activity_buyer_order_state);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        
+        displayOrderState();
+    }
 
-        if (check.equals("setting"))
-        {
-
-        }
-        else if (check.equals("login"))
-        {
-
-        }
+    private void displayOrderState() {
     }
 }

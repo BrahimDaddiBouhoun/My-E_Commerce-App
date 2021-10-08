@@ -1,7 +1,7 @@
 package com.example.ecommerce.Buyers.newui.cart;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,38 +16,48 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ecommerce.Buyers.BuyerCartActivity;
+import com.example.ecommerce.Admin.AdminNewOrdersActivity;
 import com.example.ecommerce.Buyers.BuyerConfirmFinalOrderActivity;
-import com.example.ecommerce.Buyers.BuyerHomeActivity;
-import com.example.ecommerce.Buyers.BuyerProductsDetailsActivity;
-import com.example.ecommerce.Listener.OnSwipeTouchListener;
+import com.example.ecommerce.Buyers.HomeActivity;
+import com.example.ecommerce.Buyers.newui.productdetails.ProductDetailsFragment;
 import com.example.ecommerce.Models.Cart;
 import com.example.ecommerce.R;
 import com.example.ecommerce.ViewHolder.CartViewHolder;
-import com.example.ecommerce.databinding.CartFragmentBinding;
-import com.example.ecommerce.databinding.FragmentSellerHomeBinding;
+import com.example.ecommerce.databinding.BuyerCartFragmentBinding;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.Objects;
 
 public class CartFragment extends Fragment {
 
-    private CartFragmentBinding binding;
+    private BuyerCartFragmentBinding binding;
+    private boolean clicked = false;
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
 
-    private TextView totalFeeTxt,taxTxt,deliveryTxt,totalTxt,checkOutTxt;
-
+    private TextView totalFeeTxt,taxTxt,deliveryTxt,totalTxt,checkOutTxt,message,cartText;
+    private ImageView emptyCart;
+    private Button receiveProduct;
     private int total= 0, totalFee = 0 ,delivery = 0, tax = 0 ;
+
+    private LinearLayout layout;
 
 
     public static CartFragment newInstance() {
@@ -58,7 +68,7 @@ public class CartFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = CartFragmentBinding.inflate(inflater, container, false);
+        binding = BuyerCartFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         recyclerView = binding.cardItemRv;
@@ -66,11 +76,19 @@ public class CartFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
+        layout = binding.layout;
+
+
         totalFeeTxt = binding.totalFeeTxt;
         taxTxt = binding.taxTxt;
         deliveryTxt = binding.deliveryTxt;
 
         totalTxt = binding.totalTxt;
+
+        message = binding.message;
+        cartText = binding.carttext;
+
+        emptyCart = binding.emptycart;
 
         checkOutTxt = binding.checkOutTxt;
         checkOutTxt.setOnClickListener(new View.OnClickListener() {
@@ -82,16 +100,61 @@ public class CartFragment extends Fragment {
             }
         });
 
+        receiveProduct = binding.receiveProduct;
+        receiveProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClientConfirmProductDelivery();
+            }
+        });
 
         return root;
+    }
+
+    private void ClientConfirmProductDelivery() {
+        final DatabaseReference pendingRef = FirebaseDatabase.getInstance().getReference()
+                .child("Orders").child("Pending")
+                .child(Prevalent.CurrentOnlineUser.getPhone())
+                .child("client confirmation");
+
+        CharSequence options[] = new CharSequence[]
+                {
+                        "Yes",
+                        "No"
+                };
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Are you sure that you have received all your product?");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                if (i == 0) {
+                    pendingRef.setValue("ok");
+                    Toast.makeText(getActivity(), "we hope that our service satisfied you", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity(), "Please confirm your orders once you receive them", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        builder.show();
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
+        totalFee=0;
+        clicked = false;
+        CheckOrdersState();
 
+        displayCartItems();
+    }
+
+
+    private void displayCartItems() {
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
 
         FirebaseRecyclerOptions<Cart> options =
                 new FirebaseRecyclerOptions.Builder<Cart>()
@@ -113,6 +176,7 @@ public class CartFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
 
+                        clicked=true;
 
                         int number;
                         number = Integer.parseInt(holder.txtProductQuantity.getText().toString());
@@ -128,10 +192,6 @@ public class CartFragment extends Fragment {
                             cartListRef.child("User View").child(Prevalent.CurrentOnlineUser.getPhone())
                                     .child("Products").child(model.getPid())
                                     .child("quantity").setValue(String.valueOf(number));
-
-                            cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
-                                    .child("Products").child(model.getPid())
-                                    .child("quantity").setValue(String.valueOf(number));
                         }
 
                     }
@@ -140,7 +200,7 @@ public class CartFragment extends Fragment {
                 holder.minusTxt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        clicked = true;
 
                         int number;
                         number = Integer.parseInt(holder.txtProductQuantity.getText().toString());
@@ -157,70 +217,56 @@ public class CartFragment extends Fragment {
                                     .child("Products").child(model.getPid())
                                     .child("quantity").setValue(String.valueOf(number));
 
-                            cartListRef.child("Admin View").child(Prevalent.CurrentOnlineUser.getPhone())
-                                    .child("Products").child(model.getPid())
-                                    .child("quantity").setValue(String.valueOf(number));
-
                         }
                     }
                 });
 
+                holder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick (View v) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("pid", model.getPid());
 
-                totalFee = totalFee + ((Integer.parseInt(model.getPrice())) * Integer.parseInt(model.getQuantity()));
-                totalFeeTxt.setText(String.valueOf(totalFee));
+                        ProductDetailsFragment fragment2 = new ProductDetailsFragment();
+                        fragment2.setArguments(bundle);
 
-                total = totalFee + delivery + tax ;
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.buyer_fragment_host, fragment2).addToBackStack(null)
+                                .commit();
+
+                    }
+                });
+
+                holder.delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        totalFee = totalFee - Integer.parseInt(model.getPrice())*Integer.parseInt(model.getQuantity());
+                        totalFeeTxt.setText(String.valueOf(totalFee));
+
+                        cartListRef.child("User View")
+                                .child(Prevalent.CurrentOnlineUser.getPhone())
+                                .child("Products")
+                                .child(model.getPid())
+                                .removeValue()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getActivity(), "Items removed successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                });
+
+                if(!clicked) {
+
+                    totalFee = totalFee + ((Integer.parseInt(model.getPrice())) * Integer.parseInt(model.getQuantity()));
+                    totalFeeTxt.setText(String.valueOf(totalFee));
+                }
+                total = totalFee + delivery + tax;
                 totalTxt.setText(String.valueOf(total));
-
-
-                holder.itemView.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
-                    @Override
-                    public void onSwipeLeft() {
-                        cartListRef.child("Admin View")
-                                .child(Prevalent.CurrentOnlineUser.getPhone())
-                                .child("Products")
-                                .child(model.getPid())
-                                .removeValue();
-                        cartListRef.child("User View")
-                                .child(Prevalent.CurrentOnlineUser.getPhone())
-                                .child("Products")
-                                .child(model.getPid())
-                                .removeValue()
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(getActivity(), "Items removed successfully", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                    }
-                });
-
-                holder.itemView.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
-                    @Override
-                    public void onSwipeRight() {
-                        cartListRef.child("Admin View")
-                                .child(Prevalent.CurrentOnlineUser.getPhone())
-                                .child("Products")
-                                .child(model.getPid())
-                                .removeValue();
-                        cartListRef.child("User View")
-                                .child(Prevalent.CurrentOnlineUser.getPhone())
-                                .child("Products")
-                                .child(model.getPid())
-                                .removeValue()
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(getActivity(), "Items removed successfully", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                    }
-                });
-
             }
 
             @NonNull
@@ -234,7 +280,101 @@ public class CartFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
-
     }
 
+    private void CheckOrdersState()
+    {
+        final DatabaseReference userViewRef = FirebaseDatabase.getInstance().getReference().child("Cart List")
+                .child("User View").child(Prevalent.CurrentOnlineUser.getPhone()).child("Products");
+        final DatabaseReference pendingRef = FirebaseDatabase.getInstance().getReference().child("Orders")
+                .child("Pending").child(Prevalent.CurrentOnlineUser.getPhone());
+
+        userViewRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    cartText.setVisibility(View.GONE);
+                    emptyCart.setVisibility(View.GONE);
+                    message.setVisibility(View.GONE);
+                    receiveProduct.setVisibility(View.GONE);
+
+                    layout.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    pendingRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.exists()) {
+                                if (snapshot.child("client confirmation").getValue().equals("not ok")) {
+                                    String userName = snapshot.child("name").getValue().toString();
+
+                                    layout.setVisibility(View.GONE);
+                                    cartText.setVisibility(View.GONE);
+                                    emptyCart.setVisibility(View.GONE);
+
+                                    receiveProduct.setVisibility(View.VISIBLE);
+                                    message.setVisibility(View.VISIBLE);
+                                    message.setText("Dear " + userName +
+                                            "\n your order still not have been shipped" +
+                                            "\n you can purchase more products, once you receive your order");
+                                }
+                            }
+                            else
+                            {
+                                cartText.setVisibility(View.VISIBLE);
+                                emptyCart.setVisibility(View.VISIBLE);
+
+                                message.setVisibility(View.GONE);
+                                receiveProduct.setVisibility(View.GONE);
+                                layout.setVisibility(View.GONE);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        pendingRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    String userName = snapshot.child("name").getValue().toString();
+
+                        layout.setVisibility(View.GONE);
+                        cartText.setVisibility(View.GONE);
+                        emptyCart.setVisibility(View.GONE);
+
+                        message.setVisibility(View.VISIBLE);
+                        message.setText("Dear " + userName +
+                                "\n your product still not have been shipped" +
+                                "\n you can purchase more products, once you receive your order");
+
+
+                }
+                else
+                {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }

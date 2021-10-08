@@ -1,7 +1,5 @@
 package com.example.ecommerce.Buyers.newui.categories;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +14,6 @@ import com.example.ecommerce.R;
 
 public class CategoriesFragment extends Fragment {
 
-    private CategoriesViewModel mViewModel;
 
     public static CategoriesFragment newInstance() {
         return new CategoriesFragment();
@@ -25,14 +22,8 @@ public class CategoriesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.categories_fragment, container, false);
+        return inflater.inflate(R.layout.buyer_categories_fragment, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CategoriesViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

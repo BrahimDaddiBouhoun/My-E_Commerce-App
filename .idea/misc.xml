@@ -6,9 +6,27 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/buttons.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/card_background.xml" value="0.15608108108108107" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/frag_background.xml" value="0.15608108108108107" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_back.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_cart.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_category.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_edit_location.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_forward.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_gps.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_home.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_orders.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_pending.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_person.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_person_out_line.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/ic_phone.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/input_design.xml" value="0.1414715719063545" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/light_orange_back.xml" value="0.15608108108108107" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/orange_button_background.xml" value="0.15608108108108107" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/order_state_background.xml" value="0.14290540540540542" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/search_back.xml" value="0.15608108108108107" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/drawable/setting_items_background.xml" value="0.1414715719063545" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout-v21/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/account_fragment.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_approve_product.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_category.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_disapprove_products.xml" value="0.20416666666666666" />
@@ -17,11 +35,16 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_new_orders.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_admin_user_product.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_cart.xml" value="0.14560810810810812" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_confirm_final_order.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_home.xml" value="0.14560810810810812" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_login.xml" value="0.14560810810810812" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_order_state.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_products_details.xml" value="0.13648648648648648" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_registre.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_reset_password.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_buyer_setting.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_cart.xml" value="0.16574074074074074" />
-        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_home.xml" value="0.12" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_main.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_maps.xml" value="0.2" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_products_details.xml" value="0.18425925925925926" />
@@ -36,7 +59,14 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_seller_registration.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/activity_setting.xml" value="0.17222222222222222" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/app_bar_home.xml" value="0.1787037037037037" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_account_fragment.xml" value="0.16" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_app_bar_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_cart_fragment.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_content_home.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_home_fragment.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/buyer_search_fragment.xml" value="0.13243243243243244" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/card_background.xml" value="0.14560810810810812" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/cart_fragment.xml" value="0.14560810810810812" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/cart_items_layout.xml" value="0.16574074074074074" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/categories_fragment.xml" value="0.13648648648648648" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/content_home.xml" value="0.1787037037037037" />
@@ -49,20 +79,24 @@
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_home1.xml" value="0.2" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_home_seller.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_product_details.xml" value="0.1" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_search.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/fragment_seller_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/home_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/home_fragment.xml" value="0.18" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/layout_cart_items.xml" value="0.14560810810810812" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/layout_orders.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/layout_product_items.xml" value="0.14560810810810812" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/orders_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/orders_status.xml" value="0.15" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/product_items_layout.xml" value="0.1787037037037037" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/round_background.xml" value="0.14560810810810812" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/layout/seller_item_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/buyer_home.xml" value="0.13243243243243244" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/home.xml" value="0.1787037037037037" />
         <entry key="..\:/Users/brahi/AndroidStudioProjects/My-E_Commerce-App/app/src/main/res/menu/seller_bottom_nav_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK" />
 </project>

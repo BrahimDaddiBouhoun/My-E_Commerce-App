@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.ecommerce.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class SellerProductCategoryActivity extends AppCompatActivity {
 
@@ -15,7 +17,6 @@ public class SellerProductCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_product_category);
-
 
         ImageView tShirts = findViewById(R.id.iv_tshirts);
         ImageView SportTShirts = findViewById(R.id.iv_sports);

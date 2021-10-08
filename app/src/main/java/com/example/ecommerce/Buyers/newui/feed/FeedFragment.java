@@ -1,7 +1,5 @@
 package com.example.ecommerce.Buyers.newui.feed;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +14,6 @@ import com.example.ecommerce.R;
 
 public class FeedFragment extends Fragment {
 
-    private FeedViewModel mViewModel;
 
     public static FeedFragment newInstance() {
         return new FeedFragment();
@@ -25,14 +22,8 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.feed_fragment, container, false);
+        return inflater.inflate(R.layout.buyer_feed_fragment, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(FeedViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

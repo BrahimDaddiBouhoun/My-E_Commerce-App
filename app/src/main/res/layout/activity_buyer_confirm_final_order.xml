@@ -1,79 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Buyers.BuyerConfirmFinalOrderActivity">
 
-    <TextView
-        android:id="@+id/txt"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please Confirm your Shipment Details"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_margin="25dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        />
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/shipment_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp">
+
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_arrow_back"
+                android:text="Shipment Details"
+                android:textColor="#323643"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/gps"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_gps"
+                tools:ignore="VectorDrawableCompat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
-        android:hint="Your Name"
-        android:minHeight="48dp" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
-    <EditText
-        android:id="@+id/shipment_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shipment_name"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
-        android:hint="Phone number"
-        android:inputType="number"
-        android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/shipment_name"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_design"
+            android:hint="Your Name"
+            android:minHeight="48dp"
+            android:paddingLeft="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/shipment_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shipment_phone_number"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
-        android:hint="your home address"
-        android:minHeight="48dp" />
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shipment_name">
 
-    <EditText
-        android:id="@+id/shipment_city"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shipment_address"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
-        android:hint="your city name"
-        android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/shipment_name6"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_weight="0.25"
+                android:background="@drawable/input_design"
+                android:hint="Your Name"
+                android:minHeight="48dp"
+                android:paddingLeft="16dp"
+                android:text="+213" />
 
-    <Button
-        android:id="@+id/btn_confirm_order"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
-        android:text="Confirm"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        />
+            <EditText
+                android:id="@+id/shipment_phone"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.75"
+                android:background="@drawable/input_design"
+                android:hint="Your Phone"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:paddingLeft="16dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/shipment_street_address"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_design"
+            android:hint="Street Address"
+            android:minHeight="48dp"
+            android:paddingLeft="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+        <EditText
+            android:id="@+id/shipment_city"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_design"
+            android:hint="City"
+            android:minHeight="48dp"
+            android:paddingLeft="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shipment_street_address" />
+
+        <EditText
+            android:id="@+id/shipment_country"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_design"
+            android:hint="Country"
+            android:minHeight="48dp"
+            android:paddingLeft="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shipment_city" />
+
+        <EditText
+            android:id="@+id/shipment_zip_code"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_design"
+            android:hint="Zip Code"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:paddingLeft="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shipment_country" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shipment_zip_code">
+
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center_vertical"
+                android:minHeight="40dp"
+                android:paddingLeft="16dp"
+                android:text="Lat  "
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_lat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:gravity="center_vertical"
+                android:minHeight="40dp"
+                android:text="0.0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center_vertical"
+                android:minHeight="40dp"
+                android:paddingLeft="16dp"
+                android:text="Long"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_long"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:gravity="center_vertical"
+                android:minHeight="40dp"
+                android:text="0.0"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_confirm_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/orange_button_background"
+            android:text="Confirm"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            tools:layout_editor_absoluteX="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

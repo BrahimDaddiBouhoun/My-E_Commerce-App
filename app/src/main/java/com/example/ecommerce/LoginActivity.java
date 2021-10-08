@@ -15,10 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommerce.Admin.AdminHomeActivity;
-import com.example.ecommerce.Buyers.BuyerHomeActivity;
-import com.example.ecommerce.Buyers.BuyerResetPasswordActivity;
 import com.example.ecommerce.Buyers.HomeActivity;
-import com.example.ecommerce.Listener.OnSwipeTouchListener;
 import com.example.ecommerce.Models.Users;
 import com.example.ecommerce.prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
@@ -35,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button Login;
     private ProgressDialog LoadingBar;
     private String ParentDbName = "users";
-    private TextView IamAdmin,IamNotAdmin, forgetPassword;
+    private TextView IamAdmin,IamNotAdmin;
     private CheckBox checkBoxRememberMe ;
 
 
@@ -50,12 +47,19 @@ public class LoginActivity extends AppCompatActivity {
         Login = findViewById(R.id.btn_login);
         IamAdmin = findViewById(R.id.tv_iam_admin);
         IamNotAdmin = findViewById(R.id.tv_not_admin);
-        forgetPassword = findViewById(R.id.tv_forget_password);
 
         checkBoxRememberMe = findViewById(R.id.checkBox);
         Paper.init(this);
 
         LoadingBar = new ProgressDialog(LoginActivity.this);
+
+        String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
+        String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
+
+        if(UserPhoneKey != "" && UserPasswordKey!= "") {
+            LoginPhone.setText(UserPhoneKey);
+            LoginPassword.setText(UserPasswordKey);
+        }
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,14 +90,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        forgetPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, BuyerResetPasswordActivity.class);
-                intent.putExtra("check","login");
-                startActivity(intent);
-            }
-        });
 
     }
 

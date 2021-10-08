@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,15 +10,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/carttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Cart Is Empty"
+            android:textColor="@color/orange_ff3"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/emptycart"
+            app:layout_constraintEnd_toEndOf="@+id/emptycart"
+            app:layout_constraintStart_toStartOf="@+id/emptycart" />
+
+        <ImageView
+            android:id="@+id/emptycart"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:src="@drawable/empty_cart"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/scrollView4"
+            app:layout_constraintTop_toTopOf="@+id/scrollView4" />
+
+        <Button
+            android:id="@+id/receive_product"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/orange_button_background"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="I Have Received All My Product"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/message"
+            app:layout_constraintStart_toStartOf="@+id/message"
+            app:layout_constraintTop_toBottomOf="@+id/message" />
+
         <ScrollView
             android:id="@+id/scrollView4"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
+                android:id="@+id/layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/textView12"
@@ -99,10 +159,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
                         android:text="$"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textColor="#373b54"
-                        />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/deliveryTxt"

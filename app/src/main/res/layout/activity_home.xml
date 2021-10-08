@@ -2,29 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Buyers.HomeActivity">
+    tools:context=".Buyers.HomeActivity"
+    >
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.fragment.app.FragmentContainerView
+        <FrameLayout
             android:id="@+id/buyer_fragment_host"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="65dp">
 
-        </androidx.fragment.app.FragmentContainerView>
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/new_nav_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -50,19 +55,19 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView105"
+                        android:id="@+id/home"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_home"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
-                        android:id="@+id/textView108"
+                        android:id="@+id/texthome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Home"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/orange_ff3"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -74,19 +79,20 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView115"
+                        android:id="@+id/category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@drawable/ic_category"
-                        tools:ignore="VectorDrawableCompat" />
+                        app:tint="@color/black" />
 
                     <TextView
-                        android:id="@+id/textView118"
+                        android:id="@+id/textcategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Categories"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -122,19 +128,20 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView35"
+                        android:id="@+id/feed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_feed"
+                        app:tint="@color/black"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
-                        android:id="@+id/textView68"
+                        android:id="@+id/textfeed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Feed"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -146,19 +153,20 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView75"
+                        android:id="@+id/account"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_person"
-                        tools:ignore="VectorDrawableCompat" />
+                        tools:ignore="VectorDrawableCompat"
+                        app:tint="@color/black" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/textaccount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Account"
                         android:textAlignment="center"
-                        android:textColor="#676767"
+                        android:textColor="@color/black"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -169,13 +177,13 @@
             android:id="@+id/btn_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#ff5500"
             android:elevation="3dp"
-            android:src="@drawable/ic_cart"
-            app:backgroundTint="#ff5e00"
-            app:layout_anchor="@id/app_bar"
+            android:backgroundTint="@color/white"
+            app:backgroundTint="@color/white"
+            app:srcCompat="@drawable/ic_cart"
+            app:layout_anchor="@+id/app_bar"
+            app:layout_anchorGravity="center"
             app:maxImageSize="30dp"
-            app:tint="#ffffff"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

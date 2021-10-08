@@ -17,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class AdminUserProductActivity extends AppCompatActivity {
 
@@ -38,7 +39,7 @@ public class AdminUserProductActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         productsList.setLayoutManager(layoutManager);
 
-        cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List").child("Admin View").child(userID).child("Products");
+        cartListRef = FirebaseDatabase.getInstance().getReference().child("Orders").child("Pending").child(userID).child("Product");
     }
 
     @Override
@@ -55,10 +56,14 @@ public class AdminUserProductActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
 
-                        holder.txtProductQuantity.setText("Quantity = " + model.getQuantity());
-                        holder.txtProductPrice.setText( "Price = "+ model.getPrice() +" $");
+                        holder.txtProductQuantity.setText(model.getQuantity());
+                        holder.txtProductPrice.setText(model.getPrice());
                         holder.txtProductName.setText(model.getPname());
-
+                        holder.plusTxt.setVisibility(View.INVISIBLE);
+                        holder.minusTxt.setVisibility(View.INVISIBLE);
+                        holder.delete.setVisibility(View.INVISIBLE);
+                        holder.totalEachItem.setText(String.valueOf(Integer.parseInt(model.getPrice())*Integer.parseInt(model.getQuantity())));
+                        Picasso.get().load(model.getImage()).into(holder.imageView);
                     }
 
                     @NonNull

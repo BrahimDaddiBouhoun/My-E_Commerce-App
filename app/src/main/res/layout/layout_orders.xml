@@ -37,13 +37,12 @@
             android:id="@+id/order_total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Price"
             android:layout_below="@id/order_phone_number"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:gravity="center"
             android:layout_marginTop="25dp"
-            />
+            android:gravity="center"
+            android:text="Total Price"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/order_address_city"
@@ -73,15 +72,39 @@
             android:id="@+id/btn_show_all_product"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/order_date_time"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@android:color/white"
             android:text="Show this Order Product"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
-            android:layout_below="@+id/order_date_time"
-            />
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/google_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_show_all_product"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/white"
+            android:text="Go To Google Map"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/confirm_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/google_map"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/white"
+            android:text="confirm delivery"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
